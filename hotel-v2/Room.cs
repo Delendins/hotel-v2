@@ -112,7 +112,7 @@ namespace hotel_v2
 
             tbId.Text = dgUser.CurrentRow.Cells[0].Value.ToString();
             tbPhone.Text = dgUser.CurrentRow.Cells[1].Value.ToString();
-            string status = dgUser.CurrentRow.Cells[2].Value.ToString();
+            string status = dgUser.CurrentRow.Cells[4].Value.ToString();
 
             if (status == "Free")
             {

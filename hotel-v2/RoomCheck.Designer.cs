@@ -88,7 +88,7 @@
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(242, 32);
             this.cbCategory.TabIndex = 26;
-            this.cbCategory.SelectedValueChanged += new System.EventHandler(this.cbCategory_SelectedValueChanged);
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
             // dateOut
             // 
@@ -150,6 +150,7 @@
             this.btnCek.TabIndex = 27;
             this.btnCek.Text = "Cek";
             this.btnCek.UseVisualStyleBackColor = true;
+            this.btnCek.Click += new System.EventHandler(this.btnCek_Click);
             // 
             // cbRoom
             // 

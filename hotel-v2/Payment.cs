@@ -14,8 +14,6 @@ namespace hotel_v2
 
         private void Kembali_Click(object sender, System.EventArgs e)
         {
-            MenuClient menuClient = new MenuClient();
-            menuClient.Show();
             this.Hide();
         }
     }
