@@ -17,8 +17,8 @@ namespace hotel_v2
         {
             InitializeComponent();
 
-            dateIn.CustomFormat = "dd-MMMM-yyyy";
-            dateOut.CustomFormat = "dd-MMMM-yyyy";
+            dateIn.CustomFormat = "dd MMMM yyyy";
+            dateOut.CustomFormat = "dd MMMM yyyy";
         }
 
         private void pemesan_Load(object sender, System.EventArgs e)

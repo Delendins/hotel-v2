@@ -32,15 +32,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cbCategory = new System.Windows.Forms.ComboBox();
-            this.dateOut = new System.Windows.Forms.DateTimePicker();
+            this.dateOutPicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateIn = new System.Windows.Forms.DateTimePicker();
+            this.dateInPicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCek = new System.Windows.Forms.Button();
             this.cbRoom = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblDay = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +84,7 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(338, 348);
@@ -90,14 +93,15 @@
             this.cbCategory.TabIndex = 26;
             this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
-            // dateOut
+            // dateOutPicker
             // 
-            this.dateOut.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateOut.Location = new System.Drawing.Point(726, 250);
-            this.dateOut.Name = "dateOut";
-            this.dateOut.Size = new System.Drawing.Size(242, 30);
-            this.dateOut.TabIndex = 25;
+            this.dateOutPicker.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateOutPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateOutPicker.Location = new System.Drawing.Point(726, 250);
+            this.dateOutPicker.Name = "dateOutPicker";
+            this.dateOutPicker.Size = new System.Drawing.Size(242, 30);
+            this.dateOutPicker.TabIndex = 25;
+            this.dateOutPicker.ValueChanged += new System.EventHandler(this.dateOutPicker_ValueChanged);
             // 
             // label6
             // 
@@ -109,14 +113,15 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "Date Out";
             // 
-            // dateIn
+            // dateInPicker
             // 
-            this.dateIn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateIn.Location = new System.Drawing.Point(338, 250);
-            this.dateIn.Name = "dateIn";
-            this.dateIn.Size = new System.Drawing.Size(242, 30);
-            this.dateIn.TabIndex = 23;
+            this.dateInPicker.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateInPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateInPicker.Location = new System.Drawing.Point(338, 250);
+            this.dateInPicker.Name = "dateInPicker";
+            this.dateInPicker.Size = new System.Drawing.Size(242, 30);
+            this.dateInPicker.TabIndex = 23;
+            this.dateInPicker.ValueChanged += new System.EventHandler(this.dateInPicker_ValueChanged);
             // 
             // label5
             // 
@@ -143,7 +148,7 @@
             this.btnCek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCek.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCek.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnCek.Location = new System.Drawing.Point(525, 489);
+            this.btnCek.Location = new System.Drawing.Point(643, 489);
             this.btnCek.Name = "btnCek";
             this.btnCek.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnCek.Size = new System.Drawing.Size(134, 39);
@@ -154,6 +159,7 @@
             // 
             // cbRoom
             // 
+            this.cbRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRoom.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRoom.FormattingEnabled = true;
             this.cbRoom.Location = new System.Drawing.Point(726, 348);
@@ -171,28 +177,55 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Room";
             // 
-            // label3
+            // lblPrice
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(423, 433);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "label3";
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(334, 383);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(52, 24);
+            this.lblPrice.TabIndex = 30;
+            this.lblPrice.Text = "*Price";
+            // 
+            // lblDay
+            // 
+            this.lblDay.AutoSize = true;
+            this.lblDay.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDay.Location = new System.Drawing.Point(334, 283);
+            this.lblDay.Name = "lblDay";
+            this.lblDay.Size = new System.Drawing.Size(46, 24);
+            this.lblDay.TabIndex = 31;
+            this.lblDay.Text = "*Day";
+            // 
+            // btnReset
+            // 
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnReset.Location = new System.Drawing.Point(407, 489);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnReset.Size = new System.Drawing.Size(134, 39);
+            this.btnReset.TabIndex = 32;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // RoomCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 629);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.lblDay);
+            this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.cbRoom);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCek);
             this.Controls.Add(this.cbCategory);
-            this.Controls.Add(this.dateOut);
+            this.Controls.Add(this.dateOutPicker);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateIn);
+            this.Controls.Add(this.dateInPicker);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnKembali);
@@ -214,14 +247,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbCategory;
-        private System.Windows.Forms.DateTimePicker dateOut;
+        private System.Windows.Forms.DateTimePicker dateOutPicker;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateIn;
+        private System.Windows.Forms.DateTimePicker dateInPicker;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCek;
         private System.Windows.Forms.ComboBox cbRoom;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblDay;
+        private System.Windows.Forms.Button btnReset;
     }
 }

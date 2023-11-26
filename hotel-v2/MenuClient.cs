@@ -23,5 +23,12 @@ namespace hotel_v2
             reservation.Show();
             this.Hide();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
     }
 }
