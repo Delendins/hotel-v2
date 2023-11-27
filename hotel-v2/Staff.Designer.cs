@@ -34,7 +34,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnHapus = new System.Windows.Forms.Button();
             this.dgUser = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -69,7 +68,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(543, 38);
+            this.label1.Location = new System.Drawing.Point(610, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(331, 46);
             this.label1.TabIndex = 0;
@@ -80,11 +79,12 @@
             this.btnTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTambah.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTambah.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnTambah.Location = new System.Drawing.Point(28, 599);
+            this.btnTambah.Location = new System.Drawing.Point(28, 546);
             this.btnTambah.Name = "btnTambah";
             this.btnTambah.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnTambah.Size = new System.Drawing.Size(134, 39);
-            this.btnTambah.TabIndex = 1;
+            this.btnTambah.TabIndex = 0;
+            this.btnTambah.TabStop = false;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.UseVisualStyleBackColor = true;
             this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
@@ -94,11 +94,12 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnEdit.Location = new System.Drawing.Point(193, 599);
+            this.btnEdit.Location = new System.Drawing.Point(193, 546);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnEdit.Size = new System.Drawing.Size(134, 39);
             this.btnEdit.TabIndex = 2;
+            this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -108,11 +109,12 @@
             this.btnHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHapus.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHapus.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnHapus.Location = new System.Drawing.Point(358, 599);
+            this.btnHapus.Location = new System.Drawing.Point(358, 546);
             this.btnHapus.Name = "btnHapus";
             this.btnHapus.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnHapus.Size = new System.Drawing.Size(134, 39);
             this.btnHapus.TabIndex = 3;
+            this.btnHapus.TabStop = false;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
             this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
@@ -132,25 +134,16 @@
             this.dgUser.RowHeadersWidth = 51;
             this.dgUser.RowTemplate.Height = 24;
             this.dgUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgUser.Size = new System.Drawing.Size(993, 411);
+            this.dgUser.Size = new System.Drawing.Size(993, 358);
             this.dgUser.TabIndex = 4;
+            this.dgUser.TabStop = false;
             this.dgUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUser_CellClick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 228);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 26);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Staff ID";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 286);
+            this.label3.Location = new System.Drawing.Point(26, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 26);
             this.label3.TabIndex = 6;
@@ -160,7 +153,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(23, 346);
+            this.label4.Location = new System.Drawing.Point(26, 291);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 26);
             this.label4.TabIndex = 7;
@@ -170,7 +163,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 406);
+            this.label5.Location = new System.Drawing.Point(26, 351);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 26);
             this.label5.TabIndex = 8;
@@ -179,38 +172,41 @@
             // tbId
             // 
             this.tbId.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbId.Location = new System.Drawing.Point(250, 224);
+            this.tbId.Location = new System.Drawing.Point(152, 98);
             this.tbId.Name = "tbId";
             this.tbId.Size = new System.Drawing.Size(242, 30);
             this.tbId.TabIndex = 9;
+            this.tbId.TabStop = false;
+            this.tbId.Visible = false;
             // 
             // tbNama
             // 
             this.tbNama.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNama.Location = new System.Drawing.Point(250, 282);
+            this.tbNama.Location = new System.Drawing.Point(250, 227);
             this.tbNama.Name = "tbNama";
             this.tbNama.Size = new System.Drawing.Size(242, 30);
-            this.tbNama.TabIndex = 10;
+            this.tbNama.TabIndex = 1;
             // 
             // tbNo
             // 
             this.tbNo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNo.Location = new System.Drawing.Point(250, 342);
+            this.tbNo.Location = new System.Drawing.Point(250, 287);
             this.tbNo.Name = "tbNo";
             this.tbNo.Size = new System.Drawing.Size(242, 30);
-            this.tbNo.TabIndex = 11;
+            this.tbNo.TabIndex = 2;
             // 
             // cbGender
             // 
+            this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGender.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Items.AddRange(new object[] {
             "Laki - Laki",
             "Perempuan"});
-            this.cbGender.Location = new System.Drawing.Point(250, 400);
+            this.cbGender.Location = new System.Drawing.Point(250, 345);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(242, 32);
-            this.cbGender.TabIndex = 12;
+            this.cbGender.TabIndex = 3;
             // 
             // tbCari
             // 
@@ -219,6 +215,7 @@
             this.tbCari.Name = "tbCari";
             this.tbCari.Size = new System.Drawing.Size(228, 30);
             this.tbCari.TabIndex = 13;
+            this.tbCari.TabStop = false;
             this.tbCari.TextChanged += new System.EventHandler(this.tbCari_TextChanged);
             // 
             // btnRefresh
@@ -231,6 +228,7 @@
             this.btnRefresh.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnRefresh.Size = new System.Drawing.Size(134, 39);
             this.btnRefresh.TabIndex = 14;
+            this.btnRefresh.TabStop = false;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -245,6 +243,7 @@
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(134, 39);
             this.button1.TabIndex = 15;
+            this.button1.TabStop = false;
             this.button1.Text = "Kembali";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -252,16 +251,16 @@
             // tbUsername
             // 
             this.tbUsername.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsername.Location = new System.Drawing.Point(250, 464);
+            this.tbUsername.Location = new System.Drawing.Point(250, 409);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(242, 30);
-            this.tbUsername.TabIndex = 17;
+            this.tbUsername.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(26, 468);
+            this.label6.Location = new System.Drawing.Point(26, 413);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(172, 26);
             this.label6.TabIndex = 16;
@@ -270,16 +269,16 @@
             // tbPassword
             // 
             this.tbPassword.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.Location = new System.Drawing.Point(250, 528);
+            this.tbPassword.Location = new System.Drawing.Point(250, 473);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(242, 30);
-            this.tbPassword.TabIndex = 19;
+            this.tbPassword.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(26, 532);
+            this.label7.Location = new System.Drawing.Point(26, 477);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(166, 26);
             this.label7.TabIndex = 18;
@@ -289,7 +288,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1527, 680);
+            this.ClientSize = new System.Drawing.Size(1527, 621);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbUsername);
@@ -304,7 +303,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.dgUser);
             this.Controls.Add(this.btnHapus);
             this.Controls.Add(this.btnEdit);
@@ -330,7 +328,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnHapus;
         private System.Windows.Forms.DataGridView dgUser;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

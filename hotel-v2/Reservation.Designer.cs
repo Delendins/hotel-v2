@@ -33,7 +33,7 @@
             this.btnTambah = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnHapus = new System.Windows.Forms.Button();
-            this.dgUser = new System.Windows.Forms.DataGridView();
+            this.dgReserve = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             this.cbRoom = new System.Windows.Forms.ComboBox();
             this.tbCari = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgReserve)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -115,24 +115,24 @@
             this.btnHapus.UseVisualStyleBackColor = true;
             this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
             // 
-            // dgUser
+            // dgReserve
             // 
-            this.dgUser.AllowUserToAddRows = false;
-            this.dgUser.AllowUserToDeleteRows = false;
-            this.dgUser.AllowUserToResizeColumns = false;
-            this.dgUser.AllowUserToResizeRows = false;
-            this.dgUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgUser.Location = new System.Drawing.Point(522, 227);
-            this.dgUser.Name = "dgUser";
-            this.dgUser.ReadOnly = true;
-            this.dgUser.RowHeadersVisible = false;
-            this.dgUser.RowHeadersWidth = 51;
-            this.dgUser.RowTemplate.Height = 24;
-            this.dgUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgUser.Size = new System.Drawing.Size(977, 362);
-            this.dgUser.TabIndex = 4;
-            this.dgUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUser_CellClick);
+            this.dgReserve.AllowUserToAddRows = false;
+            this.dgReserve.AllowUserToDeleteRows = false;
+            this.dgReserve.AllowUserToResizeColumns = false;
+            this.dgReserve.AllowUserToResizeRows = false;
+            this.dgReserve.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgReserve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgReserve.Location = new System.Drawing.Point(522, 227);
+            this.dgReserve.Name = "dgReserve";
+            this.dgReserve.ReadOnly = true;
+            this.dgReserve.RowHeadersVisible = false;
+            this.dgReserve.RowHeadersWidth = 51;
+            this.dgReserve.RowTemplate.Height = 24;
+            this.dgReserve.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgReserve.Size = new System.Drawing.Size(977, 362);
+            this.dgReserve.TabIndex = 4;
+            this.dgReserve.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUser_CellClick);
             // 
             // label2
             // 
@@ -283,7 +283,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgUser);
+            this.Controls.Add(this.dgReserve);
             this.Controls.Add(this.btnHapus);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnTambah);
@@ -294,7 +294,7 @@
             this.Load += new System.EventHandler(this.pemesan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgReserve)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,7 +307,7 @@
         private System.Windows.Forms.Button btnTambah;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnHapus;
-        private System.Windows.Forms.DataGridView dgUser;
+        private System.Windows.Forms.DataGridView dgReserve;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

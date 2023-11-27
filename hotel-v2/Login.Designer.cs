@@ -37,17 +37,19 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(103, 275);
+            this.tbUsername.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsername.Location = new System.Drawing.Point(104, 275);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(242, 22);
+            this.tbUsername.Size = new System.Drawing.Size(242, 30);
             this.tbUsername.TabIndex = 10;
             // 
             // tbPassword
             // 
+            this.tbPassword.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.Location = new System.Drawing.Point(103, 364);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '●';
-            this.tbPassword.Size = new System.Drawing.Size(242, 22);
+            this.tbPassword.Size = new System.Drawing.Size(242, 30);
             this.tbPassword.TabIndex = 11;
             // 
             // btnLogin
@@ -68,20 +70,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(99, 253);
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(99, 249);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 19);
+            this.label3.Size = new System.Drawing.Size(99, 23);
             this.label3.TabIndex = 13;
             this.label3.Text = "Username";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(99, 342);
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(100, 338);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 19);
+            this.label1.Size = new System.Drawing.Size(98, 23);
             this.label1.TabIndex = 14;
             this.label1.Text = "Password";
             // 

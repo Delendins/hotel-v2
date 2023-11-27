@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category.Designer.cs">
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientReserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientReserve.Designer.cs">
+      <DependentUpon>ClientReserve.cs</DependentUpon>
+    </Compile>
     <Compile Include="VariableData.cs" />
     <Compile Include="connect.cs" />
     <Compile Include="Login.cs">
@@ -104,6 +116,12 @@
     <Compile Include="Client.Designer.cs">
       <DependentUpon>Client.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Category.resx">
+      <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientReserve.resx">
+      <DependentUpon>ClientReserve.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

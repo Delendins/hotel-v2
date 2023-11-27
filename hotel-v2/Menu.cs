@@ -14,28 +14,24 @@ namespace hotel_v2
         {
             Client client = new Client();
             client.Show();
-            this.Hide();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Staff staff = new Staff();
             staff.Show();
-            this.Hide();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             Room room = new Room();
             room.Show();
-            this.Hide();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             Reservation reservation = new Reservation();
             reservation.Show();
-            this.Hide();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -43,6 +39,12 @@ namespace hotel_v2
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            category.Show();
         }
     }
 }

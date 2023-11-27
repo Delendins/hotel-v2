@@ -19,9 +19,8 @@ namespace hotel_v2
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.Show();
-            this.Hide();
+            ClientReserve clientReserve = new ClientReserve();
+            clientReserve.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

@@ -39,7 +39,7 @@ namespace hotel_v2
 
         private void btnTambah_Click(object sender, System.EventArgs e)
         {
-            if (tbId.Text == "" || tbNama.Text == "" || tbNo.Text == "" || cbAlamat.Text == null)
+            if (tbNama.Text == "" || tbNo.Text == "" || cbAlamat.Text == null || tbUsername.Text == "" || tbPassword.Text == "")
             {
                 MessageBox.Show("Tidak boleh ada data yang kosong!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -47,27 +47,28 @@ namespace hotel_v2
 
             SqlConnection conn = konn.GetConn();
             conn.Open();
-
-            cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_Client WHERE ClientId = @ClientId", conn);
+            cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_Client WHERE ClientId = @ClientId OR ClientUsername = @ClientUsername", conn);
             cmd.Parameters.AddWithValue("@ClientId", tbId.Text);
+            cmd.Parameters.AddWithValue("@ClientUsername", tbUsername.Text);
             int count = (int)cmd.ExecuteScalar();
 
             if (count > 0)
             {
-                MessageBox.Show("ID sudah terdaftar!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ID atau Username sudah terdaftar!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            cmd = new SqlCommand("INSERT INTO tbl_Client VALUES (@ClientId, @ClientName, @ClientPhone, @ClientCountry)", conn);
-            cmd.Parameters.AddWithValue("@ClientId", tbId.Text);
+            cmd = new SqlCommand("INSERT INTO tbl_Client VALUES (@ClientName, @ClientPhone, @ClientCountry, @ClientUsername, @ClientPassword)", conn);
             cmd.Parameters.AddWithValue("@ClientName", tbNama.Text);
             cmd.Parameters.AddWithValue("@ClientPhone", tbNo.Text);
             cmd.Parameters.AddWithValue("@ClientCountry", cbAlamat.Text);
+            cmd.Parameters.AddWithValue("@ClientUsername", tbUsername.Text);
+            cmd.Parameters.AddWithValue("@ClientPassword", tbPassword.Text);
 
             cmd.ExecuteNonQuery();
             conn.Close();
 
-            MessageBox.Show("User berhasil ditambah!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Client berhasil ditambah!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             pemesan_Load(this, null);
         }
@@ -79,11 +80,13 @@ namespace hotel_v2
                 if (MessageBox.Show("Rubah?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     SqlConnection conn = konn.GetConn();
-                    cmd = new SqlCommand("UPDATE tbl_Client SET ClientName = @ClientName, ClientPhone = @ClientPhone, ClientCountry = @ClientCountry WHERE ClientId = @ClientId", conn);
+                    cmd = new SqlCommand("UPDATE tbl_Client SET ClientName = @ClientName, ClientPhone = @ClientPhone, ClientCountry = @ClientCountry, ClientUsername = @ClientUsername, ClientPassword = @ClientPassword WHERE ClientId = @ClientId", conn);
                     cmd.Parameters.AddWithValue("@ClientId", tbId.Text);
                     cmd.Parameters.AddWithValue("@ClientName", tbNama.Text);
                     cmd.Parameters.AddWithValue("@ClientPhone", tbNo.Text);
                     cmd.Parameters.AddWithValue("@ClientCountry", cbAlamat.Text);
+                    cmd.Parameters.AddWithValue("@ClientUsername", tbUsername.Text);
+                    cmd.Parameters.AddWithValue("@ClientPassword", tbPassword.Text);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -107,6 +110,8 @@ namespace hotel_v2
             tbNama.Text = dgUser.CurrentRow.Cells[1].Value.ToString();
             tbNo.Text = dgUser.CurrentRow.Cells[2].Value.ToString();
             cbAlamat.Text = dgUser.CurrentRow.Cells[3].Value.ToString();
+            tbUsername.Text = dgUser.CurrentRow.Cells[4].Value.ToString();
+            tbPassword.Text = dgUser.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void btnHapus_Click(object sender, System.EventArgs e)
@@ -142,7 +147,7 @@ namespace hotel_v2
         private void tbCari_TextChanged(object sender, System.EventArgs e)
         {
             SqlConnection conn = konn.GetConn();
-            cmd = new SqlCommand("SELECT * FROM tbl_Client WHERE ClientId LIKE '%' + @Cari + '%' OR ClientName LIKE '%' + @Cari + '%' OR ClientPhone LIKE '%' + @Cari + '%' OR ClientCountry LIKE '%' + @Cari + '%'", conn);
+            cmd = new SqlCommand("SELECT * FROM tbl_Client WHERE ClientId LIKE '%' + @Cari + '%' OR ClientName LIKE '%' + @Cari + '%' OR ClientPhone LIKE '%' + @Cari + '%' OR ClientCountry LIKE '%' + @Cari + '%' OR ClientUsername LIKE '%' + @Cari + '%' OR ClientPassword LIKE '%' + @Cari + '%'", conn);
             cmd.Parameters.AddWithValue("@Cari", tbCari.Text);
 
             dt = new DataTable();
@@ -159,8 +164,6 @@ namespace hotel_v2
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
             this.Hide();
         }
 
@@ -171,6 +174,8 @@ namespace hotel_v2
             tbNo.Text = "";
             cbAlamat.Text = null;
             tbCari.Text = "";
+            tbUsername.Text = "";
+            tbPassword.Text = "";
         }
     }
 }

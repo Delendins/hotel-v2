@@ -29,11 +29,11 @@ namespace hotel_v2
             sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
 
-            dgUser.DataSource = dt;
+            dgReserve.DataSource = dt;
 
-            if (dgUser.CurrentCell != null && dgUser.CurrentCell.Selected)
+            if (dgReserve.CurrentCell != null && dgReserve.CurrentCell.Selected)
             {
-                dgUser.CurrentCell.Selected = false;
+                dgReserve.CurrentCell.Selected = false;
             }
 
             tbId.ReadOnly = false;
@@ -78,7 +78,7 @@ namespace hotel_v2
 
         private void btnEdit_Click(object sender, System.EventArgs e)
         {
-            if (dgUser.SelectedCells.Count > 0)
+            if (dgReserve.SelectedCells.Count > 0)
             {
                 if (MessageBox.Show("Rubah?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -106,14 +106,14 @@ namespace hotel_v2
         {
             tbId.ReadOnly = true;
 
-            tbId.Text = dgUser.CurrentRow.Cells[0].Value.ToString();
-            cbClient.Text = dgUser.CurrentRow.Cells[1].Value.ToString();
-            cbRoom.Text = dgUser.CurrentRow.Cells[2].Value.ToString();
+            tbId.Text = dgReserve.CurrentRow.Cells[0].Value.ToString();
+            cbClient.Text = dgReserve.CurrentRow.Cells[1].Value.ToString();
+            cbRoom.Text = dgReserve.CurrentRow.Cells[2].Value.ToString();
         }
 
         private void btnHapus_Click(object sender, System.EventArgs e)
         {
-            if (dgUser.SelectedCells.Count > 0)
+            if (dgReserve.SelectedCells.Count > 0)
             {
                 if (MessageBox.Show("Hapus?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -151,11 +151,11 @@ namespace hotel_v2
             sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
 
-            dgUser.DataSource = dt;
+            dgReserve.DataSource = dt;
 
-            if (dgUser.CurrentCell != null)
+            if (dgReserve.CurrentCell != null)
             {
-                dgUser.CurrentCell.Selected = false;
+                dgReserve.CurrentCell.Selected = false;
             }
         }
 

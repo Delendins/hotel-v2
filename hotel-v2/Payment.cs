@@ -53,11 +53,6 @@ namespace hotel_v2
             this.Hide();
         }
 
-        private void Payment_Load(object sender, System.EventArgs e)
-        {
-
-        }
-
         private decimal CalculateTotal()
         {
             int days;
@@ -95,8 +90,7 @@ namespace hotel_v2
 
                 decimal total = CalculateTotal();
 
-                // Insert data ke dalam tabel tbl_Reservation
-                SqlCommand insertCmd = new SqlCommand("INSERT INTO tbl_Reservation (Name, DateIn, DateOut, Day, Category, Price, RoomNumber, RoomPhone, Total, Payment) VALUES (@Name, @DateIn, @DateOut, @Day, @Category, @Price, @RoomNumber, @RoomPhone, @Total, @Payment)", conn);
+                SqlCommand insertCmd = new SqlCommand("INSERT INTO tbl_Reservation VALUES (@Name, @DateIn, @DateOut, @Day, @Category, @Price, @RoomNumber, @RoomPhone, @Total, @Payment, @OrderAt)", conn);
                 insertCmd.Parameters.AddWithValue("@Name", UserInformation.ClientName);
                 insertCmd.Parameters.AddWithValue("@DateIn", formattedDateIn);
                 insertCmd.Parameters.AddWithValue("@DateOut", formattedDateOut);
@@ -107,6 +101,7 @@ namespace hotel_v2
                 insertCmd.Parameters.AddWithValue("@RoomPhone", RoomInformation.RoomPhone);
                 insertCmd.Parameters.AddWithValue("@Total", total.ToString("#,##0"));
                 insertCmd.Parameters.AddWithValue("@Payment", cbPayment.Text);
+                insertCmd.Parameters.AddWithValue("@OrderAt", DateTime.Now);
 
                 insertCmd.ExecuteNonQuery();
 
@@ -118,6 +113,10 @@ namespace hotel_v2
                 conn.Close();
 
                 MessageBox.Show("Pembayaran berhasil!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ClientReserve clientReserve = new ClientReserve();
+                clientReserve.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {
