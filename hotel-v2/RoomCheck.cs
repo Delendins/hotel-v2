@@ -48,7 +48,7 @@ namespace hotel_v2
             }
             conn.Close();
             conn.Open();
-            SqlCommand cmdRoom = new SqlCommand("SELECT * FROM tbl_Room", conn);
+            SqlCommand cmdRoom = new SqlCommand("SELECT * FROM tbl_Room WHERE RoomFree = 'Free'", conn);
             SqlDataReader drRoom = cmdRoom.ExecuteReader();
             cbRoom.Items.Clear();
             while (drRoom.Read())
@@ -60,6 +60,7 @@ namespace hotel_v2
                     CategoryId = ((int)drRoom["CategoryId"])
                 });
             }
+            drRoom.Close();
             conn.Close();
 
             lblPrice.Text = "";
@@ -141,9 +142,16 @@ namespace hotel_v2
                 lblPrice.Text = $"*Harga: {price} per Day";
 
                 string[] roomNumbers = GetRoomById(id).Select(num => num.ToString()).ToArray();
-                foreach (string roomNumber in roomNumbers)
+                if (roomNumbers.Length > 0)
                 {
-                    cbRoom.Items.Add(roomNumber);
+                    foreach (string roomNumber in roomNumbers)
+                    {
+                        cbRoom.Items.Add(roomNumber);
+                    }
+                }
+                else
+                {
+                    cbRoom.Items.Add("Tidak ada kamar yang tersedia");
                 }
 
                 CategoryInformation.CategoryId = categoryId.ToString();

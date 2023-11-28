@@ -77,6 +77,12 @@ namespace hotel_v2
         {
             if (dgUser.SelectedCells.Count > 0)
             {
+                if (tbNama.Text == "" || tbNo.Text == "" || cbAlamat.Text == null || tbUsername.Text == "" || tbPassword.Text == "")
+                {
+                    MessageBox.Show("Tidak boleh ada data yang kosong!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (MessageBox.Show("Rubah?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     SqlConnection conn = konn.GetConn();

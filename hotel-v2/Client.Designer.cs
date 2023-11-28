@@ -200,14 +200,16 @@
             this.cbAlamat.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAlamat.FormattingEnabled = true;
             this.cbAlamat.Items.AddRange(new object[] {
-            "Kab. Lebak",
-            "Kab. Pandeglang",
-            "Kab. Serang",
-            "Kab. Tangerang",
-            "Kota Cilegon",
-            "Kota Serang",
-            "Kota Tangerang",
-            "Kota Tangerang Selatan"});
+            "Brunei Darussalam",
+            "Kamboja",
+            "Indonesia",
+            "Laos",
+            "Malaysia",
+            "Myanmar",
+            "Filipina",
+            "Singapura",
+            "Thailand",
+            "Vietnam"});
             this.cbAlamat.Location = new System.Drawing.Point(250, 344);
             this.cbAlamat.Name = "cbAlamat";
             this.cbAlamat.Size = new System.Drawing.Size(242, 32);

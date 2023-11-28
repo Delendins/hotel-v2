@@ -24,7 +24,7 @@ namespace hotel_v2
         private void pemesan_Load(object sender, System.EventArgs e)
         {
             SqlConnection conn = konn.GetConn();
-            cmd = new SqlCommand("SELECT * FROM tbl_Reservation", conn);
+            cmd = new SqlCommand("SELECT * FROM tbl_Reservation ORDER BY OrderAt DESC", conn);
             dt = new DataTable();
             sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
@@ -40,75 +40,12 @@ namespace hotel_v2
             clean();
         }
 
-        private void btnTambah_Click(object sender, System.EventArgs e)
-        {
-            if (tbId.Text == "" || cbClient.Text == "" || cbRoom.Text == "" || dateIn.Text == "" || dateOut.Text == "")
-            {
-                MessageBox.Show("Tidak boleh ada data yang kosong!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            SqlConnection conn = konn.GetConn();
-            conn.Open();
-
-            cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_Reservation WHERE ResId = @ResId", conn);
-            cmd.Parameters.AddWithValue("@ResId", tbId.Text);
-            int count = (int)cmd.ExecuteScalar();
-
-            if (count > 0)
-            {
-                MessageBox.Show("ID sudah terdaftar!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            cmd = new SqlCommand("INSERT INTO tbl_Reservation VALUES (@ResId, @Client, @RoomId, @DateIn, @DateOut)", conn);
-            cmd.Parameters.AddWithValue("@ResId", tbId.Text);
-            cmd.Parameters.AddWithValue("@Client", cbClient.Text);
-            cmd.Parameters.AddWithValue("@RoomId", cbRoom.Text);
-            cmd.Parameters.AddWithValue("@DateIn", dateIn.Value);
-            cmd.Parameters.AddWithValue("@DateOut", dateOut.Value);
-
-            cmd.ExecuteNonQuery();
-            conn.Close();
-
-            MessageBox.Show("User berhasil ditambah!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            pemesan_Load(this, null);
-        }
-
-        private void btnEdit_Click(object sender, System.EventArgs e)
-        {
-            if (dgReserve.SelectedCells.Count > 0)
-            {
-                if (MessageBox.Show("Rubah?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    SqlConnection conn = konn.GetConn();
-                    cmd = new SqlCommand("UPDATE tbl_Reservation SET Client = @Client, RoomId = @RoomId, ClientCountry = @ClientCountry WHERE ResId = @ResId", conn);
-                    cmd.Parameters.AddWithValue("@ResId", tbId.Text);
-                    cmd.Parameters.AddWithValue("@Client", cbClient.Text);
-                    cmd.Parameters.AddWithValue("@RoomId", cbRoom.Text);
-
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-
-                    MessageBox.Show("Data berhasil dirubah!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    pemesan_Load(this, null);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Pilih data yang akan diubah terlebih dahulu.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void dgUser_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgReserve_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             tbId.ReadOnly = true;
 
             tbId.Text = dgReserve.CurrentRow.Cells[0].Value.ToString();
-            cbClient.Text = dgReserve.CurrentRow.Cells[1].Value.ToString();
-            cbRoom.Text = dgReserve.CurrentRow.Cells[2].Value.ToString();
+            tbRoomNumber.Text = dgReserve.CurrentRow.Cells[7].Value.ToString();
         }
 
         private void btnHapus_Click(object sender, System.EventArgs e)
@@ -117,15 +54,27 @@ namespace hotel_v2
             {
                 if (MessageBox.Show("Hapus?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    SqlConnection conn = konn.GetConn();
-                    cmd = new SqlCommand("DELETE FROM tbl_Reservation WHERE ResId = @ResId", conn);
-                    cmd.Parameters.AddWithValue("@ResId", tbId.Text);
+                    using (SqlConnection conn = konn.GetConn())
+                    {
+                        conn.Open();
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
+                        using (SqlCommand cmd = new SqlCommand("DELETE FROM tbl_Reservation WHERE ResId = @ResId", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@ResId", tbId.Text);
+                            cmd.ExecuteNonQuery();
+                        }
 
-                    MessageBox.Show("Data berhasil dihapus!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        using (SqlCommand cmdUpdate = new SqlCommand("UPDATE tbl_Room SET RoomFree = 'Free' WHERE RoomNumber = @RoomNumber", conn))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@RoomNumber", tbRoomNumber.Text);
+                            cmdUpdate.ExecuteNonQuery();
+                        }
+
+                        conn.Close();
+                    }
+
+                    MessageBox.Show("Data berhasil dihapus dan diperbarui!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     pemesan_Load(this, null);
                 }
 
@@ -144,7 +93,7 @@ namespace hotel_v2
         private void tbCari_TextChanged(object sender, System.EventArgs e)
         {
             SqlConnection conn = konn.GetConn();
-            cmd = new SqlCommand("SELECT * FROM tbl_Reservation WHERE ResId LIKE '%' + @Cari + '%' OR Client LIKE '%' + @Cari + '%' OR RoomId LIKE '%' + @Cari + '%' OR ClientCountry LIKE '%' + @Cari + '%'", conn);
+            cmd = new SqlCommand("SELECT * FROM tbl_Reservation WHERE ResId LIKE '%' + @Cari + '%' OR Name LIKE '%' + @Cari + '%' OR DateIn LIKE '%' + @Cari + '%' OR DateOut LIKE '%' + @Cari + '%' OR Day LIKE '%' + @Cari + '%' OR Category LIKE '%' + @Cari + '%' OR Price LIKE '%' + @Cari + '%' OR RoomNumber LIKE '%' + @Cari + '%' OR RoomPhone LIKE '%' + @Cari + '%' OR Total LIKE '%' + @Cari + '%' OR Payment LIKE '%' + @Cari + '%'", conn);
             cmd.Parameters.AddWithValue("@Cari", tbCari.Text);
 
             dt = new DataTable();
@@ -161,8 +110,6 @@ namespace hotel_v2
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
             this.Hide();
         }
 

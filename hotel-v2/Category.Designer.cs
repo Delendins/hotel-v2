@@ -55,7 +55,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-12, -17);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1441, 100);
+            this.panel1.Size = new System.Drawing.Size(1201, 100);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -63,7 +63,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(627, 38);
+            this.label1.Location = new System.Drawing.Point(507, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(186, 46);
             this.label1.TabIndex = 0;
@@ -129,7 +129,7 @@
             this.dgUser.RowHeadersWidth = 51;
             this.dgUser.RowTemplate.Height = 24;
             this.dgUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgUser.Size = new System.Drawing.Size(883, 343);
+            this.dgUser.Size = new System.Drawing.Size(643, 343);
             this.dgUser.TabIndex = 4;
             this.dgUser.TabStop = false;
             this.dgUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUser_CellClick);
@@ -195,7 +195,7 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnRefresh.Location = new System.Drawing.Point(1271, 173);
+            this.btnRefresh.Location = new System.Drawing.Point(1031, 173);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnRefresh.Size = new System.Drawing.Size(134, 39);
@@ -234,7 +234,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1417, 606);
+            this.ClientSize = new System.Drawing.Size(1177, 606);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnRefresh);

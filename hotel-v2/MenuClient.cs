@@ -29,5 +29,11 @@ namespace hotel_v2
             login.Show();
             this.Hide();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Account account = new Account();
+            account.Show();
+        }
     }
 }

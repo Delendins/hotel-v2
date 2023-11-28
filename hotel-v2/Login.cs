@@ -69,7 +69,14 @@ namespace hotel_v2
             {
                 MessageBox.Show("Login berhasil sebagai Client!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                UserInformation.ClientId = dtClient.Rows[0]["ClientId"].ToString();
+                string clientIdString = dtClient.Rows[0]["ClientId"].ToString();
+                int clientId;
+
+                if (int.TryParse(clientIdString, out clientId))
+                {
+                    UserInformation.ClientId = clientId;
+                }
+
                 UserInformation.ClientName = dtClient.Rows[0]["ClientName"].ToString();
 
                 MenuClient menuClient = new MenuClient();
@@ -81,6 +88,13 @@ namespace hotel_v2
                 MessageBox.Show("Login gagal. Periksa kembali username dan password Anda.", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             conn.Close();
+        }
+
+        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+            this.Hide();
         }
     }
 }

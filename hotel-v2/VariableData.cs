@@ -6,7 +6,7 @@ namespace hotel_v2
     {
         public static class UserInformation
         {
-            public static string ClientId { get; set; }
+            public static int ClientId { get; set; }
             public static string ClientName { get; set; }
         }
 

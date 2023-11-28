@@ -18,3 +18,5 @@ D:\Sekolah\Kelas 12\PBO\Project\hotel-v2\hotel-v2\obj\Debug\hotel_v2.Payment.res
 D:\Sekolah\Kelas 12\PBO\Project\hotel-v2\hotel-v2\obj\Debug\hotel_v2.RoomCheck.resources
 D:\Sekolah\Kelas 12\PBO\Project\hotel-v2\hotel-v2\obj\Debug\hotel_v2.ClientReserve.resources
 D:\Sekolah\Kelas 12\PBO\Project\hotel-v2\hotel-v2\obj\Debug\hotel_v2.Category.resources
+D:\Sekolah\Kelas 12\PBO\Project\hotel-v2\hotel-v2\obj\Debug\hotel_v2.Register.resources
+D:\Sekolah\Kelas 12\PBO\Project\hotel-v2\hotel-v2\obj\Debug\hotel_v2.Account.resources
