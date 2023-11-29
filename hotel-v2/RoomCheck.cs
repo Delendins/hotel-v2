@@ -189,6 +189,13 @@ namespace hotel_v2
         {
             if (cbCategory.SelectedIndex >= 0 && cbRoom.SelectedIndex >= 0)
             {
+                string selectedRoom = cbRoom.SelectedItem.ToString();
+
+                if (selectedRoom.Equals("Tidak ada kamar yang tersedia"))
+                {
+                    MessageBox.Show("Mohon maaf, kamar tidak tersedia.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 int categoryId = Categories[cbCategory.SelectedIndex].CategoryId;
                 int roomNumber = int.Parse(cbRoom.SelectedItem.ToString());
                 RoomInformation.RoomNumber = roomNumber.ToString();
