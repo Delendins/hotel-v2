@@ -45,9 +45,9 @@ namespace hotel_v2
         private void tbCari_TextChanged(object sender, EventArgs e)
         {
             SqlConnection conn = konn.GetConn();
-            cmd = new SqlCommand("SELECT * FROM tbl_Reservation WHERE ResId LIKE '%' + @Cari + '%' OR Name LIKE '%' + @Cari + '%' OR DateIn LIKE '%' + @Cari + '%' OR DateOut LIKE '%' + @Cari + '%' OR Day LIKE '%' + @Cari + '%' OR Category LIKE '%' + @Cari + '%' OR Price LIKE '%' + @Cari + '%' OR RoomNumber LIKE '%' + @Cari + '%' OR RoomPhone LIKE '%' + @Cari + '%' OR Total LIKE '%' + @Cari + '%' OR Payment LIKE '%' + @Cari + '%'", conn);
+            cmd = new SqlCommand("SELECT * FROM tbl_Reservation WHERE (ResId LIKE '%' + @Cari + '%' OR Name LIKE '%' + @Cari + '%' OR DateIn LIKE '%' + @Cari + '%' OR DateOut LIKE '%' + @Cari + '%' OR Day LIKE '%' + @Cari + '%' OR Category LIKE '%' + @Cari + '%' OR Price LIKE '%' + @Cari + '%' OR RoomNumber LIKE '%' + @Cari + '%' OR RoomPhone LIKE '%' + @Cari + '%' OR Total LIKE '%' + @Cari + '%' OR Payment LIKE '%' + @Cari + '%') AND Name = @Name", conn);
+            cmd.Parameters.AddWithValue("@Name", UserInformation.ClientName);
             cmd.Parameters.AddWithValue("@Cari", tbCari.Text);
-
             dt = new DataTable();
             sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
